@@ -9,4 +9,20 @@ public class Student : User
     {
         StudentNumber = studentNumber;
     }
+
+    public override int MaxRentCount
+    {
+        get
+        {
+            return 2;
+        }
+    }
+
+    public override string GetType
+    {
+        get
+        {
+            return "Student";
+        }
+    }
 }

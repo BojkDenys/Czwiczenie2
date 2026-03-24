@@ -11,4 +11,20 @@ public class Employee : User
         Position = position;
         Salary = salary;
     }
+
+    public override int MaxRentCount
+    {
+        get
+        {
+            return 5;
+        }
+    }
+
+    public override string GetType
+    {
+        get
+        {
+            return "Employee";
+        }
+    }
 }

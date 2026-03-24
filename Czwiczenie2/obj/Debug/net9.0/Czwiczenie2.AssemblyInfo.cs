@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Czwiczenie2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9cc40175936557eaf422dc19594a52eb412482ef")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+46a0c8f69d95577ccb7f241f1ca3458e4744517f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Czwiczenie2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Czwiczenie2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

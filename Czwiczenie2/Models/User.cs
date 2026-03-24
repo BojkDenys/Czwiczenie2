@@ -14,6 +14,9 @@ public abstract class User
         LastName = lastName;
     }
 
+    public abstract int MaxRentCount { get; }
+    public abstract string GetType { get; }
+
     public override string ToString()
     {
         return $"Id: {Id}\nFirstname {FirstName}\nLastname {LastName}";
