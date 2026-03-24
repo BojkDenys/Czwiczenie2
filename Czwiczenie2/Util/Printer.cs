@@ -43,4 +43,34 @@ public class Printer
             Console.WriteLine(electronic);
         }
     }
+
+    public void PrintActiveRentsForUser(User user)
+    {
+        Console.WriteLine($"Active rents for {user.FirstName} {user.LastName}");
+        List<Rent> rents = _rentService.GetActiveRentsForUser(user);
+        if (rents.Count == 0)
+        {
+            Console.WriteLine("Empty");
+        }
+
+        foreach (Rent rent in rents)
+        {
+            Console.WriteLine(rent);
+        }
+    }
+
+    public void PrintOvertimeRents()
+    {
+        Console.WriteLine("Overtime rents:");
+        List<Rent> rents = _rentService.GetAllOvertimed();
+        if (rents.Count == 0)
+        {
+            Console.WriteLine("Empty");
+        }
+
+        foreach (Rent rent in rents)
+        {
+            Console.WriteLine(rent);
+        }
+    }
 }
