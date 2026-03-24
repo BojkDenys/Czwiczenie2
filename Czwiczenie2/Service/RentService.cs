@@ -8,7 +8,7 @@ public class RentService
 {
     private readonly List<Rent> _rents = new();
 
-    public Rent Rent(User user, Electronic electronic, int days)
+    public void Rent(User user, Electronic electronic, int days)
     {
         if (electronic.RentStatus != RentStatus.Free)
         {
@@ -24,10 +24,10 @@ public class RentService
         Rent rent = new Rent(user, electronic, days);
         electronic.RentStatus = RentStatus.Rented;
         _rents.Add(rent);
-        return rent;
+        
     }
 
-    public Rent Return(int rentId)
+    public void Return(int rentId,DateTime? returnTime = null)
     {
         Rent rent = _rents.FirstOrDefault(r => r.Id == rentId) ?? throw new InvalidOperationException($"Rent with id {rentId} with not found");
         if (rent.ReturnTime.HasValue)
@@ -35,14 +35,14 @@ public class RentService
             throw new InvalidOperationException($"Rent with id {rentId} already returned");
         }
 
-        rent.ReturnTime = DateTime.Now;
+        rent.ReturnTime = returnTime ?? DateTime.Now;
         rent.Electronic.RentStatus = RentStatus.Free;
         if (rent.ReturnTime > rent.DueTime)
         {
             rent.Fine = (int)Math.Ceiling((rent.ReturnTime.Value - rent.DueTime).TotalDays) * 5;
         }
 
-        return rent;
+        
     }
 
     public List<Rent> GetActiveRentsForUser(User user)

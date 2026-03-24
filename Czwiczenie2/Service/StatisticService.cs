@@ -10,8 +10,8 @@ public class StatisticService
 
     public StatisticService(ElectronicService electronicService, RentService rentService)
     {
-        electronicService = _electronicService;
-        rentService = _rentService;
+        _electronicService = electronicService;
+        _rentService = rentService;
     }
 
     public void ShowStatistic()
