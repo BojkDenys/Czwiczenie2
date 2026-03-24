@@ -31,6 +31,8 @@ Console.WriteLine($"Renting {laptop1.Name} for student {student1.FirstName} {stu
 rentService.Rent(student1, laptop1, 7);
 Console.WriteLine($"Renting {projector1.Name} for student {student1.FirstName} {student1.LastName}");
 rentService.Rent(student1, projector1, 3);
+Console.WriteLine($"Renting {camera2.Name} for employee {employee.FirstName} {employee.LastName}");
+rentService.Rent(employee, camera2, 3);
 Console.WriteLine("Try to rent rented electronic");
 try
 {
@@ -59,4 +61,27 @@ catch (InvalidOperationException e)
 {
     Console.WriteLine(e.Message);
 }
-
+Console.WriteLine("return laptop on time");
+try
+{
+    rentService.Return(1);
+}
+catch (InvalidOperationException e)
+{
+    Console.WriteLine(e.Message);
+}
+Console.WriteLine("return laptop out of time");
+try
+{
+    rentService.Return(2,DateTime.Now.AddDays(12));
+}
+catch (InvalidOperationException e)
+{
+    Console.WriteLine(e.Message);
+}
+printer.PrintActiveRentsForUser(student1);
+printer.PrintActiveRentsForUser(student2);
+printer.PrintActiveRentsForUser(employee);
+printer.PrintOvertimeRents();
+printer.PrintFreeElectronic();
+statisticService.ShowStatistic();
